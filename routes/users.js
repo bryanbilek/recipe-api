@@ -3,6 +3,17 @@ const Users = require('../models/users');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+//GET users for my own testing & checking purposes through Postman
+router.get('/users', (req, res) => {
+    Users.find().exec()
+    .then(users => {
+        res.status(200).json(users);
+    })
+    .catch(err => {
+        res.status(500).json({ msg: 'problem getting users' });
+    });
+});
+
 //POST user for register
 router.post('/register', (req, res) => {
     let user = req.body;
@@ -11,7 +22,7 @@ router.post('/register', (req, res) => {
 
     Users.create(user)
     .then(user => {
-        res.status(201).json(user);
+        res.status(201).json({ message: 'User registered successfully', user });
     })
     .catch(err => {
         res.status(500).json({ message: 'Problem registering user' });
@@ -21,12 +32,12 @@ router.post('/register', (req, res) => {
 //POST  user for login
 router.post('/login', async (req, res) => {
     try {
-        // let { username, password } = req.body;
-        const loginUser = await Users.findById(req.body.username);
+        let { email, password } = req.body;
+        const loginUser = await Users.findOne({email});
 
-        if (loginUser && bcrypt.compareSync(req.body.password, loginUser.password)) {
+        if (loginUser && bcrypt.compareSync(password, loginUser.password)) {
             const token = generateToken(loginUser);
-            res.status(201).json({ message: `Welcome ${loginUser.username}`, token });
+            res.status(201).json({ message: `Welcome ${loginUser.email}`, token });
         } else {
             res.status(401).json({ message: 'Invalid credentials' });
         }

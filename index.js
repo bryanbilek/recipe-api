@@ -9,9 +9,9 @@ const auth = require('./middleware/auth');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const user = process.env.MONGO_USER;
-const pass = process.env.MONGO_PASS;
-const db = process.env.MONGO_DB;
+const user = process.env.MONGO_USER || 'yippyskippy';
+const pass = process.env.MONGO_PASS || 'password';
+const db = process.env.MONGO_DB || 'project';
 
 mongoose.connect(`mongodb+srv://${user}:${pass}@cluster0.9fyfw.mongodb.net/${db}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 
