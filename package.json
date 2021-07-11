@@ -1,5 +1,5 @@
 {
-  "name": "Recipe-Api",
+  "name": "recipe-api",
   "version": "1.0.0",
   "description": "Backend for an app that lets you view and create recipes.",
   "main": "index.js",
