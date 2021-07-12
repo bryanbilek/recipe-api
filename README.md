@@ -1,4 +1,4 @@
-# Recipe-Api
+# recipe-api
 - This is the backend for an app about viewing and creating recipes.
 - To build this api, I used Node.Js, Express, and MongoDB (using Mongoose).
 - There is full CRUD for recipes & authentication using jsonwebtoken for users.
