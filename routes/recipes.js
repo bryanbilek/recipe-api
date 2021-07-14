@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const recipes = await Recipes.find().exec();
         recipes ? res.status(200).json(recipes) : res.status(400).json({ message: 'Something went wrong trying to get recipes' });
     } catch(err) {
-        res.status(500).json({ message: 'Problem getting all recipes' });
+        res.status(500).json({ message: 'Problem getting all recipes', err });
     }
 });
 
