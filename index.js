@@ -20,6 +20,7 @@ app.use(cors());
 app.use(helmet());
 
 //removed auth middleware for frontend testing purposes
+//comment
 app.use('/api/recipes', recipesRouter);
 app.use('/api/auth', usersRouter);
 
