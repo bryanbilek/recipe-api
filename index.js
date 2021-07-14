@@ -19,7 +19,8 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-app.use('/api/recipes', auth, recipesRouter);
+//removed auth middleware for frontend testing purposes
+app.use('/api/recipes', recipesRouter);
 app.use('/api/auth', usersRouter);
 
 app.get('/', (req, res) => {
