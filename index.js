@@ -16,9 +16,7 @@ const db = process.env.MONGO_DB || 'project';
 mongoose.connect(`mongodb+srv://${user}:${pass}@cluster0.9fyfw.mongodb.net/${db}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.json());
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 app.use(helmet());
 
 //removed auth middleware for frontend testing purposes
