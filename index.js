@@ -13,7 +13,7 @@ const user = process.env.MONGO_USER || 'yippyskippy';
 const pass = process.env.MONGO_PASS || 'password';
 const db = process.env.MONGO_DB || 'project';
 
-mongoose.connect(`mongodb+srv://${user}:${pass}@cluster0.9fyfw.mongodb.net/${db}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://${user}:Github123@cluster0.9fyfw.mongodb.net/${db}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.json());
 app.use(cors());
